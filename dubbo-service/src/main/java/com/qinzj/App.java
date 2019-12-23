@@ -1,4 +1,4 @@
-package com.qinzj.service;
+package com.qinzj;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 

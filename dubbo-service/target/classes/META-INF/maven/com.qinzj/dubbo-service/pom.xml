@@ -6,4 +6,32 @@
     <version>0.0.1-SNAPSHOT</version>
   </parent>
   <artifactId>dubbo-service</artifactId>
+  
+  <dependencies>
+  	<dependency>
+  		<groupId>com.qinzj</groupId>
+  		<artifactId>dubbo-api</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+  	</dependency>
+  </dependencies>
+  
+  <build>
+  	<plugins>
+  		<plugin>
+  			<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat7-maven-plugin</artifactId>
+				<configuration>
+					<port>8099</port>
+					<path>/</path>
+					<argLine>-Xmx1024M -XX:MaxPermSize=1024m</argLine>
+					<systemProperties>
+						<spring.profiles.active>development</spring.profiles.active>
+					</systemProperties>
+					<useTestClasspath>true</useTestClasspath>
+					<uriEncoding>UTF-8</uriEncoding>
+				</configuration>
+  		</plugin>
+  	</plugins>
+  </build>
+  
 </project>

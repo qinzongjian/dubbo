@@ -12,10 +12,10 @@
 </dubbo:application>
 
 <!-- 监控中心配置， 用于配置连接监控中心相关信息，可以不配置，不是必须的参数。 -->
-<dubbo:monitor protocol="registry"></dubbo:monitor>
+<!-- <dubbo:monitor protocol="registry"></dubbo:monitor> -->
 
 <!-- 服务注册地址，N/A为使用默认的简单注册地址的方式 -->
-<dubbo:registry address="N/A"></dubbo:registry>
+<dubbo:registry address="zookeeper://192.168.1.128:2181"></dubbo:registry>
 
 <!-- dubbo协议 -->
 <dubbo:protocol name="dubbo" port="21812"></dubbo:protocol>
