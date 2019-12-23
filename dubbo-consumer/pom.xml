@@ -8,8 +8,10 @@
     <version>0.0.1-SNAPSHOT</version>
   </parent>
   <artifactId>dubbo-consumer</artifactId>
+  <packaging>war</packaging>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <jackson.version>2.9.7</jackson.version>
   </properties>
   <dependencies>
     <dependency>
@@ -24,6 +26,77 @@
   		<artifactId>dubbo-api</artifactId>
   		<version>0.0.1-SNAPSHOT</version>
   	</dependency>
+  	
+  	<dependency>
+    	<groupId>org.springframework</groupId>
+    	<artifactId>spring-context-support</artifactId>
+    	<version>5.1.2.RELEASE</version>
+    </dependency>
+  	
+  	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-webmvc</artifactId>
+	    <version>5.2.1.RELEASE</version>
+	</dependency>
+    
+     <!-- Spring 升级4+ 依赖的JSON包 -->
+      <dependency>
+          <groupId>com.fasterxml.jackson.core</groupId>
+          <artifactId>jackson-databind</artifactId>
+          <version>${jackson.version}</version>
+      </dependency>
+      <dependency>
+          <groupId>com.fasterxml.jackson.core</groupId>
+          <artifactId>jackson-core</artifactId>
+          <version>${jackson.version}</version>
+      </dependency>
+      <dependency>
+          <groupId>com.fasterxml.jackson.core</groupId>
+          <artifactId>jackson-annotations</artifactId>
+          <version>${jackson.version}</version>
+      </dependency>
+
+    <!-- aop -->
+    <dependency>
+    	<groupId>org.aspectj</groupId>
+    	<artifactId>aspectjrt</artifactId>
+    	<version>1.6.11</version>
+    </dependency>
+    <dependency>
+    	<groupId>org.aspectj</groupId>
+    	<artifactId>aspectjweaver</artifactId>
+    	<version>1.6.11</version>
+    </dependency>
     
   </dependencies>
+  
+  <build>
+  	<plugins>
+  		<plugin>
+  			<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat7-maven-plugin</artifactId>
+				<configuration>
+					<port>8199</port>
+					<path>/</path>
+					<argLine>-Xmx1024M -XX:MaxPermSize=1024m</argLine>
+					<systemProperties>
+						<spring.profiles.active>development</spring.profiles.active>
+					</systemProperties>
+					<useTestClasspath>true</useTestClasspath>
+					<uriEncoding>UTF-8</uriEncoding>
+				</configuration>
+  		</plugin>
+  		
+  		<plugin>
+              <artifactId>maven-compiler-plugin</artifactId>
+              <configuration>
+                  <source>1.8</source>
+                  <target>1.8</target>
+                  <encoding>UTF-8</encoding>
+              </configuration>
+            </plugin>
+  		
+  	</plugins>
+  </build>
+  
 </project>

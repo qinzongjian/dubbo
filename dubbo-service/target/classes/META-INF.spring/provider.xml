@@ -18,7 +18,7 @@
 <dubbo:registry address="zookeeper://192.168.1.128:2181"></dubbo:registry>
 
 <!-- dubbo协议 -->
-<dubbo:protocol name="dubbo" port="21812"></dubbo:protocol>
+<dubbo:protocol name="http" port="21812"></dubbo:protocol>
 
 <!-- 暴露服务 -->
 <dubbo:service interface="com.qinzj.service.ProviderService" ref="providerService"></dubbo:service>
